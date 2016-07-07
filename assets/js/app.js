@@ -89,6 +89,10 @@
       		}
 		}
 
+		$scope.isActive = function (index) {
+			return currentTrackIdx == index;
+		}
+
 		function loadTrack() {
 			var playerScope = angular.element('#player').scope();
 			widget.load( playerScope.trackList[currentTrackIdx].uri, { auto_play: true,});

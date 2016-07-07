@@ -16,7 +16,7 @@
     <div id="player" ng-controller="player">
         <div class = "clearfix">
             <ul class="playlist">
-                <li ng-repeat="track in trackList" class="clearfix">
+                <li ng-repeat="track in trackList track by $index" ng-class="{active: isActive($index)}" class="clearfix">
                     <span class="artwork"><img src="{{track.artwork_url}}" width=30px /></span>
                     <span class="track">{{track.user.username}}<br /><strong>{{track.title}}</strong></span>
                     <span class="button"><button class="btn btn-default" ng-click="removeTrack($index)"><span class="glyphicon glyphicon-remove"></span></button></span>
