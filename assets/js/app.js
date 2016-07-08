@@ -24,8 +24,8 @@
 		$scope.searchTracks = function() {
 	    	$scope.searchResults = [];
 			SC.get('/tracks', { q: $scope.keyword }, function(tracks) {
-	    		for (var i in tracks) {
-	        		$scope.searchResults.push(tracks[i]);
+	    		for (　var i in tracks　) {
+	        		$scope.searchResults.push(　tracks[i]　);
 	    		}
 				$scope.$apply();
 	    	});
@@ -50,15 +50,19 @@
 		}, function(){
 			var addTrack =  $scope.sharedData.addTrack;
 			if ( addTrack != null ) {
-				$scope.trackList.push($scope.sharedData.addTrack);
+				$scope.trackList.push(　$scope.sharedData.addTrack　);
 			}
+		});
+
+		widget.bind(　SC.Widget.Events.FINISH, function() {
+			$scope.next();
 		});
 
 		$scope.play = function() {
 			loadTrack();
 		}
 
-		$scope.pause = function() {
+		$scope.stop = function() {
 			widget.pause();
 		}
 
@@ -94,8 +98,8 @@
 		}
 
 		function loadTrack() {
-			var playerScope = angular.element('#player').scope();
-			widget.load( playerScope.trackList[currentTrackIdx].uri, { auto_play: true,});
+			widget.load($scope.trackList[currentTrackIdx].uri, { auto_play: true,});
+
 		}
 	});
 }());

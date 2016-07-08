@@ -7,69 +7,73 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="banner">
+        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-music"></span> SC Player</a>
+    </nav>
 
-<div class="container">
-    <div class = "sc-widget">
-        <iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url="></iframe>
-    </div>
-    <!-- player(play list&button) -->
-    <div id="player" ng-controller="player">
-        <div class = "clearfix">
-            <ul class="playlist">
-                <li ng-repeat="track in trackList track by $index" ng-class="{active: isActive($index)}" class="clearfix">
-                    <span class="artwork"><img src="{{track.artwork_url}}" width=30px /></span>
-                    <span class="track">{{track.user.username}}<br /><strong>{{track.title}}</strong></span>
-                    <span class="button"><button class="btn btn-default" ng-click="removeTrack($index)"><span class="glyphicon glyphicon-remove"></span></button></span>
-                </li>
-            </ul>
+    <div class="container">
+        <div class = "sc-widget">
+            <iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url="></iframe>
         </div>
-        <div class = "controll-button">
-            <button class="btn btn-default" ng-click="play()">Play</button>
-            <button class="btn btn-default" ng-click="stop()">Stop</button>
-            <button class="btn btn-default" ng-click="next()">Next</button>
-            <button class="btn btn-default" ng-click="prev()">Prev</button>
+        <!-- player(play list&button) -->
+        <div id="player" ng-controller="player">
+            <div class = "clearfix">
+                <ul class="playlist">
+                    <li ng-repeat="track in trackList track by $index" ng-class="{active: isActive($index)}" class="clearfix">
+                        <span class="artwork"><img src="{{track.artwork_url}}" width=30px /></span>
+                        <span class="track">{{track.user.username}}<br /><strong>{{track.title}}</strong></span>
+                        <span class="button"><button class="btn btn-default" ng-click="removeTrack($index)"><span class="glyphicon glyphicon-remove"></span></button></span>
+                    </li>
+                </ul>
+            </div>
+            <div class = "controll-button">
+                <button class="btn btn-default" ng-click="play()">Play</button>
+                <button class="btn btn-default" ng-click="stop()">Stop</button>
+                <button class="btn btn-default" ng-click="next()">Next</button>
+                <button class="btn btn-default" ng-click="prev()">Prev</button>
+            </div>
         </div>
-    </div>
 
-    <!-- search & add tracks -->
-    <div id="searcher" ng-controller="searcher">
-        <div class = "clearfix">
-            <div class="search-form">
-                <form novalidate class="search-form-input" role="form" ng-submit="searchTracks()">
-                    <div class="input-group">
-                        <label class="sr-only" for="input-keyword">keyword</label>
-                        <input type="text" name="keyword" id="input-keyword" class="form-control" placeholder="keyword" ng-model="keyword"/>
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        <!-- search & add tracks -->
+        <div id="searcher" ng-controller="searcher">
+            <div class = "clearfix">
+                <div class="search-form">
+                    <form novalidate class="search-form-input" role="form" ng-submit="searchTracks()">
+                        <div class="input-group">
+                            <label class="sr-only" for="input-keyword">keyword</label>
+                            <input type="text" name="keyword" id="input-keyword" class="form-control" placeholder="keyword" ng-model="keyword"/>
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class = "clearfix">
-            <div class = "search-result">
-            <ul class="result-list">
-                <li id="search-track-{{$index}}" ng-repeat="track in searchResults track by $index" class="clearfix">
-                <span class="artwork"><img src="{{track.artwork_url}}" width=30px /></span>
-                <span class="track">{{track.user.username}}</span><br /><strong>{{track.title}}</strong></td>
-                <span class="button"><button class="btn btn-default" ng-click="addToTrackList(track)"><span class="glyphicon glyphicon-plus"></span></button></span>
-            </ul>
+            <div class = "clearfix">
+                <div class = "search-result">
+                <ul class="result-list">
+                    <li id="search-track-{{$index}}" ng-repeat="track in searchResults track by $index" class="clearfix">
+                    <span class="artwork"><img src="{{track.artwork_url}}" width=30px /></span>
+                    <span class="track">{{track.user.username}}</span><br /><strong>{{track.title}}</strong></td>
+                    <span class="button"><button class="btn btn-default" ng-click="addToTrackList(track)"><span class="glyphicon glyphicon-plus"></span></button></span>
+                </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!--
-<div class="text-area">
-    <textarea class="console" wrap="off"></textarea>
-</div>
--->
+    <!--
+    <div class="text-area">
+        <textarea class="console" wrap="off"></textarea>
+    </div>
+    -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="https://connect.soundcloud.com/sdk.js"></script>
-<script src="assets/js/soundcloud-player-api.js"></script>
-<script src="assets/js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://connect.soundcloud.com/sdk.js"></script>
+    <script src="assets/js/soundcloud-player-api.js"></script>
+    <script src="assets/js/app.js"></script>
 
 </body>
 </html>
