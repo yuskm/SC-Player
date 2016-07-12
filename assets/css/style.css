@@ -42,9 +42,17 @@ h1 {
 
 .playlist span.artwork {
 	float: left;
-    width : 40px;
-	padding: 5px;
+    width: 30px;
+    height : 30px;
+    background-color: #f5f5f5;
+    border: 1px solid #d6d3cc;
+    margin : 5px;
 }
+
+.result-list span.artwork img {
+	width: 30px;
+}
+
 
 .playlist span.track {
     float: left;
@@ -107,8 +115,15 @@ h1 {
 
 .result-list span.artwork {
 	float: left;
-    width : 40px;
-	padding: 5px;
+    width: 30px;
+    height : 30px;
+    background-color: #f5f5f5;
+    border: 1px solid #d6d3cc;
+    margin : 5px;
+}
+
+.result-list span.artwork img {
+	width: 30px;
 }
 
 .result-list span.track {
